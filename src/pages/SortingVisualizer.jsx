@@ -3,7 +3,7 @@ import '../styles/SortingVisualizer.css';
 import { mergeSortFunction } from '../algorithms/mergeSortAlgorithm.js';
 import quickSortFunction from "../algorithms/quickSortAlgorithm.js";
 
-let ANIMATION_SPEED_MS = 200; //
+let ANIMATION_SPEED_MS = 3; //
 
 
 // Helper functions
@@ -11,15 +11,6 @@ let ANIMATION_SPEED_MS = 200; //
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-function arraysAreEqual(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) return false;
-    }
-    return true;
-}
-
 
 //  Vizualizer Component
 
@@ -31,7 +22,7 @@ export default class SortingVisualizer extends React.Component {
             chosenAlgo: '',
             isSorting: false, // for locking ui while animation is running
             animationSpeed: 3,
-            numberOfArrayBars: 10,
+            numberOfArrayBars: 200,
         };
     }
 
@@ -51,9 +42,26 @@ export default class SortingVisualizer extends React.Component {
         this.setState({ array });
     }
 
+    flashGreen(delay) {
+        if (delay <= 0) return;
+
+        const arrayBars = document.getElementsByClassName('arrayBar');
+
+        /* turn every bar green */
+        setTimeout(() => {
+            for (let bar of arrayBars) bar.style.backgroundColor = '#00FF00';
+        }, delay);
+
+        /* back to turquoise 1 s later */
+        setTimeout(() => {
+            for (let bar of arrayBars) bar.style.backgroundColor = 'turquoise';
+        }, delay + 1000);
+    }
+
     // Sorting ALgorithms
 
     bubbleSort() {
+        // yellow indicates two bars are being compared, red indicates bars just swapped heights
         const arrayBars = document.getElementsByClassName('arrayBar');
         let bubbleArray = JSON.parse(JSON.stringify(this.state.array)); // creates a deep copy of array (from stackoverflow)
         let step = 0;
@@ -92,28 +100,32 @@ export default class SortingVisualizer extends React.Component {
     }
 
     quickSort() {
-
-        const animations = quickSortFunction(this.state.array);
+        // yellow indicates bar being compared to pivot, purple indicates pivot, red indicates being swapped
+        const animations = quickSortFunction([...this.state.array]);
+        const arrayBars = document.getElementsByClassName('arrayBar');
         let step = 0;
+
         for (let i = 0; i < animations.length; i++) {
-            const arrayBars = document.getElementsByClassName('arrayBar');
-            const [type, barOneIndex, barTwoIndex] = animations[i];
+
+            const [type, barOneIndex, barTwoIndex, newHeightOne, newHeightTwo] = animations[i];
             const barOneStyle = arrayBars[barOneIndex].style;
             const barTwoStyle = arrayBars[barTwoIndex].style;
-            if (type == "compare") {
+
+            if (type === "compare") {
+                // flash yellow
                 setTimeout(() => {
                     barOneStyle.backgroundColor = 'yellow';
-                    barTwoStyle.backgroundColor = 'yellow';
+                    barTwoStyle.backgroundColor = 'purple';
                 }, step++ * ANIMATION_SPEED_MS);
+
             }
-            else if (type =="swap") {
+
+            else if (type === "swap") {
                 setTimeout(() => {
-                    const heightOne = barOneStyle.height;
-                    const heightTwo = barTwoStyle.height;
                     arrayBars[barOneIndex].style.backgroundColor = 'red';
                     arrayBars[barTwoIndex].style.backgroundColor = 'red';
-                    arrayBars[barOneIndex].style.height = heightTwo;
-                    arrayBars[barTwoIndex].style.height = heightOne;
+                    arrayBars[barOneIndex].style.height = `${newHeightOne}px`;
+                    arrayBars[barTwoIndex].style.height = `${newHeightTwo}px`;
                 }, step++ * ANIMATION_SPEED_MS);
             }
             setTimeout(() => {
@@ -125,6 +137,7 @@ export default class SortingVisualizer extends React.Component {
     }
 
     mergeSort() {
+        // yellow is two bars are being compared (left sub array vs right sub array)
         const animations = mergeSortFunction(this.state.array);
 
         for (let i = 0; i < animations.length; i++) {
@@ -149,6 +162,7 @@ export default class SortingVisualizer extends React.Component {
                 }, i * ANIMATION_SPEED_MS);
             }
         }
+
         return animations.length * ANIMATION_SPEED_MS; // duration
     }
 
@@ -181,10 +195,10 @@ export default class SortingVisualizer extends React.Component {
                 default:
                     break;
             }
-
+            if (runTime > 0) this.flashGreen(runTime + 20);
             setTimeout(
                 () => this.setState({ isSorting: false }),
-                runTime + 50 /* small buffer */
+                runTime + 70
             );
         });
     };

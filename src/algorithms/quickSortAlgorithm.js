@@ -4,7 +4,7 @@ export default function quickSortFunction(arr, lo = 0, hi = arr.length - 1, anim
     const p = partition(arr, lo, hi, animations);
     quickSortFunction(arr, lo, p, animations);  // left side
     quickSortFunction(arr, p + 1, hi, animations); // right side
-    return animations;                          //
+    return animations;
 }
 
 function partition(arr, lo, hi, animations) {
@@ -28,6 +28,6 @@ function partition(arr, lo, hi, animations) {
         if (i >= j) return j;                      // split point reached
 
         [arr[i], arr[j]] = [arr[j], arr[i]];       // in-place swap
-        animations.push(['swap', i, j]);           // log the swap
+        animations.push(['swap', i, j, arr[i], arr[j]]);          // log the swap , with heights
     }
 }
