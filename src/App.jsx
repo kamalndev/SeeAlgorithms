@@ -1,0 +1,25 @@
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './ui/navbar.jsx';
+import Home from './pages/Home.jsx';
+import GraphVisualizer from './pages/GraphVisualizer.jsx';
+import Practice from './pages/Practice.jsx';
+import SortingVisualizer from "./pages/SortingVisualizer.jsx";
+
+function App() {
+    return (
+        <>
+            <NavBar />
+            <div className="container">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/graphs" element={<GraphVisualizer />} />
+                    <Route path="/sort" element={<SortingVisualizer />} />
+                    <Route path="/practice" element={<Practice />} />
+                </Routes>
+            </div>
+        </>
+    );
+}
+
+export default App;

@@ -1,0 +1,21 @@
+.arrayContainer {
+    position: fixed;
+    left: 100px;
+    top: 150px;
+    align-items: center;
+}
+
+.arrayBar {
+    width: 5px;
+    background-color: turquoise;
+    display: inline-block;
+    margin: 0 1px;
+}
+.sortingOptions {
+   display: inline-block;
+    font-size: larger;
+    gap: 50px;
+}
+.generateAndSort {
+    gap: 500px;
+}
