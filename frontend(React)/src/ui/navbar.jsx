@@ -4,7 +4,6 @@ import '../styles/navbar.css';
 
 export default function Navbar() {
     return (
-
         <nav className="navbar">
             <Link to="/" className="siteTitle">SeeAlgorithms</Link>
             <div className="navbarMiddle">
@@ -16,8 +15,7 @@ export default function Navbar() {
             </div>
             <div className="loginbuttons">
                 <ul>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/signup">Signup</Link></li>
+                    <li><Link to="/login">Login/Signup</Link></li>
                 </ul>
             </div>
         </nav>

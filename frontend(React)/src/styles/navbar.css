@@ -1,48 +1,118 @@
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-    margin: 0;
-    padding-top: 60px;
+    font-family: sans-serif;
 }
+
 .navbar {
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    height: 64px;
+    line-height: 64px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
     z-index: 1000;
+    width: 100vw;
 }
+
 
 .siteTitle {
     font-size: 2rem;
-
-}
-.navbar ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-
-}
-
-.navbar a:link,
-.navbar a:visited {
-    color: white;
-}
-
-.navbar a {
-    color: inherit;
+    color: #fff;
     text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
+.navbarMiddle {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 
-.navbar li:hover {
-    background-color: #777;
+.navbarMiddle ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    align-items: center;
+    height: 100%;
+}
+
+.navbarMiddle li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbarMiddle a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    line-height: 64px;
+    height: 64px;
+}
+
+.navbarMiddle a:hover {
+    background: #444;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.loginbuttons {
+    flex-shrink: 0;
+    margin-left: 3rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.loginbuttons ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+
+.loginbuttons li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.loginbuttons a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    line-height: 64px;
+    height: 64px;
+}
+
+.loginbuttons a:hover {
+    background: #444;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }

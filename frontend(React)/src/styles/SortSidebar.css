@@ -1,0 +1,65 @@
+.SortSidebar {
+    height: 100vh;
+    width: 200px;
+    background-color: #2F4050;
+    float: right;
+    right: 0;
+    top: 0;
+    position: fixed;
+    z-index: 1001;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.SortSidebarList {
+    height: auto;
+    padding: 0;
+    width: 100%;
+}
+
+.SortSidebarList:hover {
+    cursor: pointer;
+}
+.SortSidebarList .SortSidebarRow {
+    width: 100%;
+    height: 60px;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+.SortSidebarList .row:hover {
+    cursor: pointer;
+    background-color: #293846;
+}
+
+.SortSidebarList #active {
+    background-color: #293846;
+}
+.SortSidebarRow #icon {
+    flex: 30%;
+    display: grid;
+    place-items: center;
+}
+
+.SortSidebarRow #title {
+    flex: 70%;
+}
+
+.SortSidebarList .SortSidebarRow.active {
+    background-color: #293846;
+
+    border-left: 5px solid white;
+}
+
+.SortSidebarList .SortSidebarRow.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

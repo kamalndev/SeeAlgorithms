@@ -1,21 +1,45 @@
+
+
 .arrayContainer {
-    position: fixed;
-    left: 100px;
-    top: 150px;
-    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box;
+    border: 20px green solid;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+
 }
 
 .arrayBar {
-    width: 5px;
+    width: 10px;
     background-color: turquoise;
     display: inline-block;
     margin: 0 1px;
 }
 .sortingOptions {
-   display: inline-block;
+    display: inline-block;
     font-size: larger;
     gap: 50px;
 }
-.generateAndSort {
-    gap: 500px;
+/*.generateAndSort {*/
+/*    gap: 500px;*/
+/*}*/
+
+.sliderContainer {
+    position: absolute;
+    bottom: -100px;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    transform: scale(2);
 }
+
