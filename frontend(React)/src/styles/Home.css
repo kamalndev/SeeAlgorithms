@@ -1,0 +1,39 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin-left: -5%; 
+    width: calc(100% - 200px);
+    margin-top: -30vh;
+    position: fixed;
+    background-color: white;
+}
+
+.home-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: turquoise;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.home-description {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+    color: black;
+    margin: 0 auto;
+}
+
+.home-description strong {
+    color: turquoise;
+    font-weight: 600;
+} 

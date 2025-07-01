@@ -4,14 +4,12 @@
   padding: 0;
   text-align: center;
 }
-.App {
+/* .App {
   width: 100vw;
   height: 100vh;
-}
+} */
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
+html {
+  color-scheme: light;
+  position: fixed;
 }

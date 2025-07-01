@@ -4,6 +4,8 @@
     background-color: #2F4050;
     position: fixed;
     z-index: 1001;
+    left: 0;
+    top: 0;
 
 }
 

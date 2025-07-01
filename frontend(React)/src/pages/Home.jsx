@@ -1,12 +1,13 @@
 import React from 'react'
-import NavBar from '../ui/NavBar';
-
+import '../styles/Home.css';
 
 export default function Home() {
     return (
-
-        <div>
-            <h1 className = "homeTitle">Welcome to SeeAlgorithms</h1>
+        <div className="home-container">
+            <h1 className="home-title">Welcome to SeeAlgorithms</h1>
+            <p className="home-description">
+                Please press <strong>"Sorting Visualizer"</strong> on the left hand side to get started!
+            </p>
         </div>
     )
 }
